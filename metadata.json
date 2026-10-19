@@ -1,0 +1,6 @@
+{
+  "name": "InkBridge",
+  "description": "Two languages. One story. A bilingual (English + Urdu) literary blogging and novel-publishing platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

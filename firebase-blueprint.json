@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Post",
+      "description": "A published or draft blog post, article, or novel episode in English and/or Urdu",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 300, "description": "English title" },
+        "titleUr": { "type": "string", "maxLength": 300, "description": "Urdu title in Nastaliq script" },
+        "slug": { "type": "string", "maxLength": 150, "description": "Unique URL slug" },
+        "excerptEn": { "type": "string", "maxLength": 600, "description": "Short excerpt in English" },
+        "excerptUr": { "type": "string", "maxLength": 600, "description": "Short excerpt in Urdu" },
+        "contentEn": { "type": "string", "description": "Markdown formatted English content" },
+        "contentUr": { "type": "string", "description": "Markdown formatted Urdu content" },
+        "category": { "type": "string", "enum": ["Blog", "Article", "Novel Episode"] },
+        "seriesId": { "type": "string", "description": "Optional parent series ID for novel episodes" },
+        "episodeNumber": { "type": "number", "description": "Optional episode number within series" },
+        "language": { "type": "string", "enum": ["en", "ur", "both"] },
+        "coverImageUrl": { "type": "string", "description": "URL of the cover image" },
+        "status": { "type": "string", "enum": ["draft", "published"] },
+        "readingTimeMinutes": { "type": "number", "description": "Calculated reading time in minutes" },
+        "authorId": { "type": "string", "description": "Firebase UID of author" },
+        "authorName": { "type": "string", "maxLength": 100, "description": "Display name of author" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["slug", "category", "language", "status", "authorId"]
+    },
+    "Series": {
+      "title": "Series",
+      "description": "A serialized novel or story collection",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string", "maxLength": 200, "description": "Series name in English" },
+        "nameUr": { "type": "string", "maxLength": 200, "description": "Series name in Urdu" },
+        "descriptionEn": { "type": "string", "maxLength": 1000, "description": "Series synopsis in English" },
+        "descriptionUr": { "type": "string", "maxLength": 1000, "description": "Series synopsis in Urdu" },
+        "coverImageUrl": { "type": "string", "description": "Series cover image URL" },
+        "language": { "type": "string", "enum": ["en", "ur", "both"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nameEn", "language"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Authorized administrator user profile",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": "#/entities/Post",
+      "description": "Collection of bilingual articles, blogs, and novel episodes"
+    },
+    "/series/{seriesId}": {
+      "schema": "#/entities/Series",
+      "description": "Collection of serialized novels and anthologies"
+    },
+    "/admins/{uid}": {
+      "schema": "#/entities/Admin",
+      "description": "Authorized admin users with CMS access"
+    }
+  }
+}

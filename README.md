@@ -1,27 +1,20 @@
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-# InkBridge
+# Run and deploy your AI Studio app
 
-> **Two languages. One story.**
+This contains everything you need to run your app locally.
 
-InkBridge is a bilingual publishing platform for English and Urdu writers — built for bloggers, essayists, and serialized novelists. It ships with a secure admin dashboard for drafting, publishing, and managing articles, blogs, and novel episodes, with first-class right-to-left (RTL) typography for Urdu.
+View your app in AI Studio: https://ai.studio/apps/004234f7-ff27-4ec6-b4d4-b5b21fffc68f
 
-### ✨ Highlights
-- 🌐 Bilingual English + Urdu with full RTL support and Noto Nastaliq Urdu typography
-- 📝 Markdown editor with live preview (EN + UR side by side)
-- 📚 Series support for serialized novels and episode-based publishing
-- 🔐 Admin-only CMS via Google Sign-In and Firestore security rules
-- 🖼️ Cover image uploads via Firebase Storage
-- 🎨 Literary, warm design system (ink navy, cream, saffron accent)
-- ⚡ React 18 + Vite + Tailwind CSS + shadcn/ui
-- 📱 Fully responsive, keyboard accessible, WCAG AA contrast
+## Run Locally
 
-### 🛠️ Tech Stack
-React · Vite · Tailwind CSS · shadcn/ui · Firebase (Auth, Firestore, Storage) · react-markdown · date-fns
+**Prerequisites:**  Node.js
 
-### 🚀 Quick Start
-```bash
-git clone https://github.com/your-username/inkbridge.git
-cd inkbridge
-npm install
-# add your Firebase config to .env
-npm run dev
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
