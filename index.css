@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink: #14213D;
+    --ink-light: #2D4A73;
+    --paper: #FAF7F2;
+    --surface: #FFFFFF;
+    --saffron: #D98E04;
+    --saffron-light: #F5D88F;
+    --charcoal: #1A1A1A;
+    --muted: #6B7280;
+    --border: #E8E2D9;
+    --success: #2F855A;
+    --danger: #C53030;
+  }
+
+  .dark {
+    --ink: #E5E7EB;
+    --ink-light: #F3F4F6;
+    --paper: #0F1419;
+    --surface: #1A2027;
+    --saffron: #D98E04;
+    --saffron-light: #4A3510;
+    --charcoal: #E5E7EB;
+    --muted: #9CA3AF;
+    --border: #2A3138;
+    --success: #38A169;
+    --danger: #E53E3E;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--charcoal);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+.font-serif-literary {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
+}
+
+/* Urdu Reading Content Styling - prevents ascender/descender clipping */
+.urdu-reading-pane {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
+  line-height: 2.4 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: normal;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.urdu-reading-pane p {
+  margin-bottom: 1.75rem;
+  line-height: 2.4 !important;
+}
+
+.urdu-reading-pane h1,
+.urdu-reading-pane h2,
+.urdu-reading-pane h3 {
+  line-height: 2.5 !important;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+/* Soft elevation shadows as requested */
+.shadow-soft {
+  box-shadow: 0 1px 3px rgba(20, 33, 61, 0.06), 0 1px 2px rgba(20, 33, 61, 0.04);
+}
+
+.shadow-soft-hover:hover {
+  box-shadow: 0 8px 20px rgba(20, 33, 61, 0.10);
+  transform: translateY(-2px);
+}
+
+.dark .shadow-soft {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.dark .shadow-soft-hover:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Focus outline as requested in UX details */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
